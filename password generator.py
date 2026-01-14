@@ -3,7 +3,7 @@ from tkinter import messagebox
 import random
 import string
 
-# ---------------- Password Logic ----------------
+
 def generate_password():
     try:
         length = int(entry_length.get())
@@ -55,20 +55,20 @@ def copy_to_clipboard():
     root.clipboard_append(entry_password.get())
     messagebox.showinfo("Copied", "Password copied to clipboard")
 
-# ---------------- GUI Setup ----------------
+
 root = tk.Tk()
 root.title("Advanced Password Generator")
 root.geometry("400x450")
 
 tk.Label(root, text="Password Generator", font=("Arial", 16, "bold")).pack(pady=10)
 
-# Password length
+
 tk.Label(root, text="Password Length").pack()
 entry_length = tk.Entry(root)
 entry_length.insert(0, "12")
 entry_length.pack()
 
-# Options
+
 var_upper = tk.BooleanVar(value=True)
 var_lower = tk.BooleanVar(value=True)
 var_digits = tk.BooleanVar(value=True)
@@ -79,21 +79,21 @@ tk.Checkbutton(root, text="Lowercase Letters (a-z)", variable=var_lower).pack(an
 tk.Checkbutton(root, text="Numbers (0-9)", variable=var_digits).pack(anchor="w", padx=50)
 tk.Checkbutton(root, text="Symbols (!@#$%)", variable=var_symbols).pack(anchor="w", padx=50)
 
-# Generate button
+
 tk.Button(root, text="Generate Password", command=generate_password).pack(pady=10)
 
-# Output
+
 entry_password = tk.Entry(root, font=("Arial", 12), justify="center")
 entry_password.pack(pady=5)
 
-# Strength
+
 label_strength = tk.Label(root, text="Strength: ")
 label_strength.pack()
 
-# Copy button
 tk.Button(root, text="Copy to Clipboard", command=copy_to_clipboard).pack(pady=10)
 
-# Exit
+
 tk.Button(root, text="Exit", command=root.quit).pack(pady=5)
 
 root.mainloop()
+
